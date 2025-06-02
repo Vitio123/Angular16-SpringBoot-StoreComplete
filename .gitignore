@@ -1,0 +1,19 @@
+# Crear el archivo .gitignore
+echo "# Backend (Spring Boot)" > .gitignore
+echo "Backend/target/" >> .gitignore
+echo "Backend/*.jar" >> .gitignore
+echo "Backend/*.war" >> .gitignore
+echo "Backend/.mvn/" >> .gitignore
+echo "Backend/mvnw" >> .gitignore
+echo "Backend/mvnw.cmd" >> .gitignore
+echo "" >> .gitignore
+echo "# Frontend (Angular)" >> .gitignore
+echo "Frontend/node_modules/" >> .gitignore
+echo "Frontend/dist/" >> .gitignore
+echo "Frontend/.angular/" >> .gitignore
+echo "Frontend/.vscode/" >> .gitignore
+echo "" >> .gitignore
+echo "# General" >> .gitignore
+echo "*.log" >> .gitignore
+echo ".DS_Store" >> .gitignore
+echo ".env" >> .gitignore
