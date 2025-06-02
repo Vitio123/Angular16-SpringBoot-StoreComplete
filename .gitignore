@@ -1,19 +1,193 @@
-# Crear el archivo .gitignore
-echo "# Backend (Spring Boot)" > .gitignore
-echo "Backend/target/" >> .gitignore
-echo "Backend/*.jar" >> .gitignore
-echo "Backend/*.war" >> .gitignore
-echo "Backend/.mvn/" >> .gitignore
-echo "Backend/mvnw" >> .gitignore
-echo "Backend/mvnw.cmd" >> .gitignore
-echo "" >> .gitignore
-echo "# Frontend (Angular)" >> .gitignore
-echo "Frontend/node_modules/" >> .gitignore
-echo "Frontend/dist/" >> .gitignore
-echo "Frontend/.angular/" >> .gitignore
-echo "Frontend/.vscode/" >> .gitignore
-echo "" >> .gitignore
-echo "# General" >> .gitignore
-echo "*.log" >> .gitignore
-echo ".DS_Store" >> .gitignore
-echo ".env" >> .gitignore
+# ==============================================================================
+# GITIGNORE PARA PROYECTO ANGULAR 16 + SPRING BOOT
+# ==============================================================================
+
+# ==============================================================================
+# ANGULAR FRONTEND
+# ==============================================================================
+
+# Dependencias de Node
+Frontend/EcommerceWeb/node_modules/
+Frontend/EcommerceWeb/npm-debug.log*
+Frontend/EcommerceWeb/yarn-debug.log*
+Frontend/EcommerceWeb/yarn-error.log*
+
+# Archivos de build de Angular
+Frontend/EcommerceWeb/dist/
+Frontend/EcommerceWeb/tmp/
+Frontend/EcommerceWeb/out-tsc/
+Frontend/EcommerceWeb/bazel-out/
+
+# Archivos de Angular CLI
+Frontend/EcommerceWeb/.angular/cache/
+Frontend/EcommerceWeb/.sass-cache/
+Frontend/EcommerceWeb/connect.lock
+Frontend/EcommerceWeb/coverage/
+Frontend/EcommerceWeb/libpeerconnection.log
+Frontend/EcommerceWeb/testem.log
+Frontend/EcommerceWeb/typings/
+
+# Archivos de sistema
+Frontend/EcommerceWeb/.DS_Store
+Frontend/EcommerceWeb/Thumbs.db
+
+# ==============================================================================
+# SPRING BOOT BACKEND
+# ==============================================================================
+
+# Maven
+Backend/*/target/
+Backend/*/.mvn/wrapper/maven-wrapper.jar
+Backend/*/.mvn/wrapper/maven-wrapper.properties
+Backend/*/.mvn/wrapper/MavenWrapperDownloader.java
+
+# Gradle
+Backend/*/.gradle/
+Backend/*/build/
+Backend/*/gradle/wrapper/gradle-wrapper.jar
+Backend/*/gradle/wrapper/gradle-wrapper.properties
+
+# Archivos compilados de Java
+Backend/*/*.class
+Backend/*/*.jar
+Backend/*/*.war
+Backend/*/*.ear
+Backend/*/*.zip
+Backend/*/*.tar.gz
+Backend/*/*.rar
+
+# Logs
+Backend/*/logs/
+Backend/*/*.log
+Backend/*/spring.log
+
+# Archivos de configuración sensibles
+Backend/*/application-*.properties
+Backend/*/application-*.yml
+!Backend/*/application.properties
+!Backend/*/application.yml
+
+# Base de datos H2
+Backend/*/*.db
+Backend/*/*.mv.db
+Backend/*/*.trace.db
+
+# ==============================================================================
+# IDEs y EDITORES
+# ==============================================================================
+
+# IntelliJ IDEA
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+
+# Eclipse
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+bin/
+
+# Visual Studio Code
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
+
+# NetBeans
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+# ==============================================================================
+# SISTEMA OPERATIVO
+# ==============================================================================
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# ==============================================================================
+# OTROS ARCHIVOS TEMPORALES
+# ==============================================================================
+
+# Archivos temporales
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# Archivos de backup
+*.bak
+*.backup
+*.old
+
+# Archivos de entorno
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# ==============================================================================
+# PERMITIR ARCHIVOS IMPORTANTES
+# ==============================================================================
+
+# Asegurar que estos archivos SÍ se suban
+!Frontend/EcommerceWeb/src/
+!Frontend/EcommerceWeb/package.json
+!Frontend/EcommerceWeb/angular.json
+!Frontend/EcommerceWeb/tsconfig.json
+!Frontend/EcommerceWeb/README.md
+
+!Backend/*/src/
+!Backend/*/pom.xml
+!Backend/*/build.gradle
+!Backend/*/README.md
