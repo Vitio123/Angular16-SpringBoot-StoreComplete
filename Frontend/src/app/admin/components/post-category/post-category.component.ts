@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Route, Router } from '@angular/router';
 import { AdminService } from '../../service/admin.service';
-import { Router } from '@angular/router';
-import { UserStorageService } from 'src/app/services/storage/user-storage.service';
 
 @Component({
   selector: 'app-post-category',
@@ -28,39 +27,22 @@ export class PostCategoryComponent {
   }
 
   addCategory(): void {
-    console.log('Form valid:', this.categoryForm.valid);
-    console.log('Form value:', this.categoryForm.value);
-    console.log('Token exists:', !!UserStorageService.getToken());
-
     if (this.categoryForm.valid) {
-      this.adminService.addCategory(this.categoryForm.value).subscribe({
-        next: (res) => {
-          console.log('Success response:', res);
+      this.adminService
+        .addCategory(this.categoryForm.value)
+        .subscribe((res) => {
           if (res.id != null) {
-            this.snackBar.open('Category Posted Successfully!', 'Close', {
+            this.snackBar.open('Category Posted Successfully', 'Close', {
               duration: 5000,
             });
             this.router.navigateByUrl('/admin/dashboard');
           } else {
-            this.snackBar.open(res.message, 'Close', {
+            this.snackBar.open(res.message, 'close', {
               duration: 5000,
               panelClass: 'error-snackbar',
             });
           }
-        },
-        error: (error) => {
-          console.error('Component error:', error);
-          this.snackBar.open(
-            'Error: ' +
-              (error.error?.message || error.message || 'Unknown error'),
-            'Close',
-            {
-              duration: 5000,
-              panelClass: 'error-snackbar',
-            }
-          );
-        },
-      });
+        });
     } else {
       this.categoryForm.markAllAsTouched();
     }
